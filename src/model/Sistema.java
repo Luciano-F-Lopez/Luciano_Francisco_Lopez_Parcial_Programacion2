@@ -39,20 +39,20 @@ public class Sistema {
     }
 
     public List<Servicio> traerServicio(boolean enPromocion) {
-        List<Servicio> serviciosEnPromocion = new ArrayList<>();
-        for (Servicio servicio : lstServicio) {
-            if (servicio.isEnPromocion() == enPromocion) {
-                serviciosEnPromocion.add(servicio);
+        List<Servicio> serviciosEnPromocion = new ArrayList<>();  //creo una lista vacia para meter a los que cumplan con la condicion
+        for (Servicio servicio : lstServicio) {                  //itera sobre cada servicio que hay en la lista 
+            if (servicio.isEnPromocion() == enPromocion) {      //verifica si el servicio esta en promocion
+                serviciosEnPromocion.add(servicio);             // agrega el servicio en promocion a la lista
             }
         }
-        return serviciosEnPromocion;
+        return serviciosEnPromocion;                      //devuelve la lista con los servicios en promocion 
     }
 
-    public List<Servicio> traerServicio(boolean enPromocion, LocalDate dia) {
+    public List<Servicio> traerServicio(boolean enPromocion, LocalDate dia) {     
 
-        List<Servicio> serviciosFiltrados = new ArrayList<>();
-        for (Servicio servicio : lstServicio) {
-            if (servicio.isEnPromocion() == enPromocion) {
+        List<Servicio> serviciosFiltrados = new ArrayList<>();  //creo una lista vacia para meter a los que cumplan con la condicion
+        for (Servicio servicio : lstServicio) {              //itera sobre cada servicio que hay en la lista
+            if (servicio.isEnPromocion() == enPromocion) {   //verifica si el servicio esta en promocion
                 serviciosFiltrados.add(servicio);
             }
         }
@@ -60,38 +60,38 @@ public class Sistema {
     }
 
     public boolean agregarGastronomia(String gastronomia, double precio, int diaSemDesc, String codServicio, double porcentajeDescuento, boolean enPromocion) {
-        if (traerServicio(codServicio) != null) {
-            throw new IllegalArgumentException("El servicio ya existe.");
+        if (traerServicio(codServicio) != null) {            // Verifica si ya existe un servicio con el mismo código.
+            throw new IllegalArgumentException("El servicio ya existe.");  //tira excepcion si el servicio ya existe
         }
-        Gastronomia nuevoServicio = new Gastronomia(gastronomia, precio, diaSemDesc, codServicio, porcentajeDescuento, enPromocion);
-        lstServicio.add(nuevoServicio);
+        Gastronomia nuevoServicio = new Gastronomia(gastronomia, precio, diaSemDesc, codServicio, porcentajeDescuento, enPromocion);   //crea objeto gastronomia con los parametros dados
+        lstServicio.add(nuevoServicio);     //agrega el nuevo servicio a la lista de servicios disponibles 
         return true;
     }
 
     public boolean agregarHospedaje(String hospedaje, double precioPorNoche, String codServicio, double porcentajeDescuento, boolean enPromocion) {
-        if (traerServicio(codServicio) != null) {
-            throw new IllegalArgumentException("El servicio ya existe.");
+        if (traerServicio(codServicio) != null) {              // Verifica si ya existe un servicio con el mismo código.
+            throw new IllegalArgumentException("El servicio ya existe.");  //tira excepcion si el servicio ya existe
         }
 
-        Hospedaje nuevoServicio = new Hospedaje(hospedaje, precioPorNoche, codServicio, porcentajeDescuento, enPromocion);
-        lstServicio.add(nuevoServicio);
-        return true;
+        Hospedaje nuevoServicio = new Hospedaje(hospedaje, precioPorNoche, codServicio, porcentajeDescuento, enPromocion);   //crea objeto hospedaje con los parametros dados
+        lstServicio.add(nuevoServicio);    //agrega el nuevo servicio a la lista de servicios disponibles
+        return true;           //devulve true si se agrego con exito
     }
 
     public void imprimirServicios() {
-        for (Servicio servicio : lstServicio) {
-            System.out.println(servicio);
+        for (Servicio servicio : lstServicio) {   //itera cada objeto sobre la lista lstServicio
+            System.out.println(servicio);       // imprime cada iteracion de la lista 
         }
     }
 
-    public List<Servicio> traerServiciosEnPromocion(boolean enPromocion) {
-        List<Servicio> serviciosEnPromocion = new ArrayList<>();
-        for (Servicio servicio : lstServicio) {
-            if (servicio.isEnPromocion() == enPromocion) {
-                serviciosEnPromocion.add(servicio);
+    public List<Servicio> traerServiciosEnPromocion(boolean enPromocion) { 
+        List<Servicio> serviciosEnPromocion = new ArrayList<>(); // Crea una nueva lista para almacenar los servicios que están en promoción
+        for (Servicio servicio : lstServicio) {   // Itera sobre cada objeto Servicio en la lista 
+            if (servicio.isEnPromocion() == enPromocion) {  // Verifica si el servicio cumple con el estado de promoción solicitada 
+                serviciosEnPromocion.add(servicio);   // Si el servicio está en promoción lo añade a la lista de servicios
             }
         }
-        return serviciosEnPromocion;
+        return serviciosEnPromocion; //devuelve la lista 
     }
 
 }

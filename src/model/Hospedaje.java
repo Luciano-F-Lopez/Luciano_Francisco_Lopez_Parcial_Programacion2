@@ -44,10 +44,10 @@ public class Hospedaje extends Servicio {
 
     @Override
     public double calcularPrecioFinal(LocalDate dia) {
-        double precioFinal = precioPorNoche;
+        double precioFinal = precioPorNoche;    // inicio una variable con el valor de precioPorNoche
 
-        if (isEnPromocion() && dia.getDayOfWeek().getValue() < 6) {
-            precioFinal *= (1 - getPorcentajeDescuento() / 100);
+        if (isEnPromocion() && dia.getDayOfWeek().getValue() < 6) {    //verifica si el servicio esta en promocion y si el dia es de lunes a viernes
+            precioFinal *= (1 - getPorcentajeDescuento() / 100);   //calcula el descuento 
         }
         return precioFinal;
     }

@@ -39,9 +39,6 @@ public class Gastronomia extends Servicio {
         this.precio = precio;
     }
 
-    public int getDiaSemDesc() {
-        return diaSemDesc;
-    }
 
     public void setDiaSemDesc(int diaSemDesc) {
         this.diaSemDesc = diaSemDesc;
@@ -51,8 +48,8 @@ public class Gastronomia extends Servicio {
     public double calcularPrecioFinal(LocalDate dia) {
         double precioFinal = precio;
 
-        if (isEnPromocion() && dia.getDayOfWeek().getValue() == diaSemDesc) {   
-            precioFinal *= (1 - getPorcentajeDescuento() / 100);
+        if (isEnPromocion() && dia.getDayOfWeek().getValue() == diaSemDesc) {   //si esta  en promocion y el dia es igual al dia de la semana con descuento hace lo siguiente
+            precioFinal *= (1 - getPorcentajeDescuento() / 100);                //calculo nuevo precio reduciendoe el precio1 original menos el descuento  
         }
         return precioFinal;
     }
