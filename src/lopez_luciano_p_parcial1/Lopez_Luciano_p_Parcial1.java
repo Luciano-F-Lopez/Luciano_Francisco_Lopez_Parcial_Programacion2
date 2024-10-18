@@ -21,30 +21,51 @@ public class Lopez_Luciano_p_Parcial1 {
         //String gastronomia, double precio, int diaSemDesc, String codServicio, double porcentajeDescuento, boolean enPromocion
 
         System.out.println("1-1");
-        //Gastronomia gastro1 = new Gastronomia("Hamburguesa criolla",180.0,4,"4892",15.0,true);
-        //System.out.println(gastro1.toString());
+
+        try {
+            // Intento de crear un objeto Gastronomia con un código de servicio no válido
+            Gastronomia gastronomia1 = new Gastronomia("Hamburguesa criolla", 180.0, 4, "4892", 15.0, true);
+            System.out.println("Objeto Gastronomia creado: " + gastronomia1);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error al crear el objeto Gastronomia: " + e.getMessage());
+        }
 
         System.out.println("1-2");
-        Gastronomia gastro2 = new Gastronomia("Hamburguesa criolla", 180.0, 4, "489235", 15.0, true);
-        System.out.println(gastro2.toString());
+
+        try {
+            Gastronomia gastro2 = new Gastronomia("Hamburguesa criolla", 180.0, 4, "489235", 15.0, true);
+            System.out.println(gastro2.toString());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error al crear el objeto Gastronomia: " + e.getMessage());
+        }
 
         System.out.println("1-3");
         // String hospedaje, double precioPorNoche, String codServicio, double porcentajeDescuento, boolean enPromocion
-        //Hospedaje hospe = new Hospedaje("Cabania 3 personas",1500.0,"2872",10.0,true);
-        //System.out.println(hospe.toString());
+        try {
+            Hospedaje hospe = new Hospedaje("Cabania 3 personas", 1500.0, "2872", 10.0, true);
+            System.out.println(hospe.toString());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error al crear el objeto Gastronomia: " + e.getMessage());
+        }
 
         System.out.println("1-4");
         //String hospedaje, double precioPorNoche, String codServicio, double porcentajeDescuento, boolean enPromocion
-        Hospedaje hospe = new Hospedaje("Cabania 3 personas", 1500.0, "287282", 10.0, true);
-        System.out.println(hospe.toString());
+        try {
+            Hospedaje hospe = new Hospedaje("Cabania 3 personas", 1500.0, "287282", 10.0, true);
+            System.out.println(hospe.toString());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error al crear el objeto Hospedaje: " + e.getMessage());
+        }
 
         System.out.println("2-1");
+        Gastronomia gastro2 = new Gastronomia("Hamburguesa criolla", 180.0, 4, "489235", 15.0, true);
         LocalDate diaGastronomia = LocalDate.of(2020, 10, 28);
         double precioFinalGastronomia = gastro2.calcularPrecioFinal(diaGastronomia);
         System.out.println("Precio final de Gastronomia: " + precioFinalGastronomia);
 
         System.out.println("2-2");
         LocalDate diaHospedaje = LocalDate.of(2020, 10, 27);
+        Hospedaje hospe = new Hospedaje("Cabania 3 personas", 1500.0, "287282", 10.0, true);
         double precioFinalHospedaje = hospe.calcularPrecioFinal(diaHospedaje);
         System.out.println("Precio final de Hospedaje: " + precioFinalHospedaje);
 
@@ -72,7 +93,6 @@ public class Lopez_Luciano_p_Parcial1 {
         }
 
         System.out.println("4-2");
-       
 
     }
 

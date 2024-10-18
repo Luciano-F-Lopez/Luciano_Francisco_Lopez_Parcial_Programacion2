@@ -18,7 +18,7 @@ public abstract class Servicio {
 
     public Servicio(String codServicio, double porcentajeDescuento, boolean enPromocion) throws IllegalArgumentException {
         if (codServicio.length() != 6) {
-            throw new IllegalArgumentException("El código del servicio debe tener exactamente 6 caracteres.");
+            throw new IllegalArgumentException("El codigo del servicio debe tener exactamente 6 caracteres.");
         }
         this.codServicio = codServicio;
         this.porcentajeDescuento = porcentajeDescuento;
